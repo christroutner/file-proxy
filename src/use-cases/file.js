@@ -7,6 +7,10 @@
 // import clone from 'git-clone/promise.js'
 import shell from 'shelljs'
 
+// Hack to get __dirname back.
+// https://blog.logrocket.com/alternatives-dirname-node-js-es-modules/
+import * as url from 'url'
+
 class FileUseCase {
   constructor (localConfig = {}) {
     // console.log('User localConfig: ', localConfig)
@@ -31,6 +35,10 @@ class FileUseCase {
       const gitUrl = `http://${seedUrl}/${urn}.git`
       console.log(`gitUrl: ${gitUrl}`)
 
+      const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
+      const repoPath = `${__dirname}../../repos/`
+
+      shell.cd(repoPath)
       shell.exec(`git clone ${gitUrl}`)
       console.log('Git repo cloned.')
 
