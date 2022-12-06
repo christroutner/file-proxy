@@ -2,6 +2,8 @@
   REST API Controller library for the /files route
 */
 
+import send from 'koa-send'
+
 import wlogger from '../../../adapters/wlogger.js'
 
 // let _this
@@ -66,9 +68,12 @@ class FileRESTControllerLib {
 
       // const users = await _this.useCases.user.getAllUsers()
 
-      await this.useCases.file.getFile(ctx.params)
+      const filePath = await this.useCases.file.getFile(ctx.params)
+      console.log('filePath 2: ', filePath)
 
-      ctx.body = { success: true }
+      await send(ctx, filePath)
+
+      // ctx.body = { success: true }
     } catch (err) {
       wlogger.error('Error in users/controller.js/getFile(): '.err)
       ctx.throw(422, err.message)

@@ -42,6 +42,15 @@ class FileUseCase {
       shell.exec(`git clone ${gitUrl}`)
       console.log('Git repo cloned.')
 
+      console.log('__dirname: ', __dirname)
+
+      // Path to the desired file.
+      // const filePath = `${__dirname}../../repos/${urn}/${filename}`
+      const filePath = `${urn}/${filename}`
+      console.log('filePath 1: ', filePath)
+
+      return filePath
+
       // const result = await clone(gitUrl, './')
       // console.log('result: ', result)
     } catch (err) {
