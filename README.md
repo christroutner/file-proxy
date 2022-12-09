@@ -12,6 +12,11 @@ Making a REST API call like this:
 
 - `GET file/pine.radicle.garden/hnrkcahyaj8apybx4p4px5h4r1r4y1fu7t6fy/add-1.0.0.tgz`
 
+CURL example:
+
+- `curl -H "Content-Type: application/json" -X GET localhost:5020/files/pine.radicle.garden/hnrkcahyaj8apybx4p4px5h4r1r4y1fu7t6fy/add-1.0.0.tgz`
+
+
 Will download the corresponding Git repository:
 
 - `git clone pine.radicle.garden/hnrkcahyaj8apybx4p4px5h4r1r4y1fu7t6fy.git`
