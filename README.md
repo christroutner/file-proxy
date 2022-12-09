@@ -6,7 +6,7 @@ By calling a GET REST API endpoint and giving a path that matches a Radicle Git 
 
 This is a quick and dirty prototype, to prove that the concept is possible. This code repository is forked from a this [ipfs-service-provider](https://github.com/Permissionless-Software-Foundation/ipfs-service-provider) template.
 
-## Example
+## Usage
 
 Making a REST API call like this:
 
@@ -24,6 +24,14 @@ Will download the corresponding Git repository:
 And it will return the `add-1.0.0.tgz` from that repository.
 
 *Note:* The file requested must exist in the repositories root directory.
+
+## Installation
+This code expects node.js v16+ to be installed on the host operating system.
+
+- `git clone https://github.com/christroutner/file-proxy`
+- `cd file-proxy`
+- `npm install`
+- `npm start`
 
 ## License
 
